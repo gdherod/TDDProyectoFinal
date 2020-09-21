@@ -1,14 +1,14 @@
 package cl.desafiolatam.tddproyectofinal.model.remote
 
 import cl.desafiolatam.tddproyectofinal.model.remote.pojo.BBWrapper
-import retrofit2.Call
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
 interface BBAPI {
     @GET("/api/characters")
-    fun charactersList(): Call<BBWrapper>
+    suspend fun charactersList(): Response<BBWrapper>
 }
 
 class RetrofitClient {
