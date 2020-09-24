@@ -9,7 +9,7 @@ interface BBDao {
     fun getAllCharacter(): LiveData<List<Character>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAllCharacter(characterList: List<Character>)
+    suspend fun insertAllCharacter(characterList: List<Character>)
 
     @Delete
     fun deleteCharacter(character: Character)
