@@ -4,9 +4,11 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 
 // Annotates class to be a Room Database with a table (entity) of the Word class
-@Database(entities = [Character::class], version = 1)
+@Database(entities = [CharacterEntity::class], version = 1, exportSchema = false)
+@TypeConverters(StringListConverter::class)
 abstract class BBDataBase : RoomDatabase() {
 
     abstract fun bbDao(): BBDao
