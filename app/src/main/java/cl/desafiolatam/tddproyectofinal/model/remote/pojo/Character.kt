@@ -1,7 +1,6 @@
 package cl.desafiolatam.tddproyectofinal.model.remote.pojo
 
-class BBWrapper : ArrayList<BBWrapper.Character>() {
-    data class Character(
+data class Character(
         val char_id: Int,
         val name: String,
         val birthday: String,
@@ -9,9 +8,8 @@ class BBWrapper : ArrayList<BBWrapper.Character>() {
         val img: String,
         val status: String,
         val nickname: String,
-        val appearance: List<Int>,
+        //val appearance: List<Int>,
         val portrayed: String,
-        val category: String,
-        val betterCallSaulAppearance: List<Int?>
-    )
-}
+        val category: String
+        //val betterCallSaulAppearance: List<Int?>
+)
