@@ -45,9 +45,9 @@ class BBRepository(context: Context) {
         }
     }
 
-    fun insertCharacterDB(charactersList: List<CharacterEntity>) {
+    fun insertCharacterDB(charactersListEntity: List<CharacterEntity>) {
         CoroutineScope(Dispatchers.IO).launch {
-            bbDataBase.bbDao().insertAllCharacters(charactersList)
+            bbDataBase.bbDao().insertAllCharacters(charactersListEntity)
         }
     }
 }
