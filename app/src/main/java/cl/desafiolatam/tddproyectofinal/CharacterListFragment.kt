@@ -1,11 +1,14 @@
 package cl.desafiolatam.tddproyectofinal
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import cl.desafiolatam.tddproyectofinal.model.db.CharacterEntity
 import cl.desafiolatam.tddproyectofinal.view.BBAdapter
 import cl.desafiolatam.tddproyectofinal.viewmodel.BBViewModel
@@ -17,6 +20,7 @@ class CharacterListFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    val logtag = "CharacterListFragment"
     private var characterList = ArrayList<CharacterEntity>()
     private lateinit var bbAdapter: BBAdapter
 
@@ -59,12 +63,18 @@ class CharacterListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         bbAdapter = BBAdapter(characterList)
+        character_list.setHasFixedSize(true)
+        character_list.layoutManager = LinearLayoutManager(context)
         character_list.adapter = bbAdapter
 
         val bbViewModel: BBViewModel by activityViewModels()
 
         bbViewModel.characterList.observe(viewLifecycleOwner, {
             bbAdapter.updateCharactersItems(it)
+        })
+
+        bbAdapter.characterSelected.observe(viewLifecycleOwner, Observer {
+            Log.d(logtag, "Personaje seleccionado $it")
         })
     }
 }
