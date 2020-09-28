@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">TDDProyectoFinal</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="name_text">Name</string>
+    <string name="nickname_text">Nickname</string>
+    <string name="favorites_text">Favorites</string>
+    <string name="details_text">Details</string>
 </resources>
