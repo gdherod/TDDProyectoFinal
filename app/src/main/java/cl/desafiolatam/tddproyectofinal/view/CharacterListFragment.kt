@@ -1,4 +1,4 @@
-package cl.desafiolatam.tddproyectofinal
+package cl.desafiolatam.tddproyectofinal.view
 
 import android.os.Bundle
 import android.util.Log
@@ -9,14 +9,16 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import cl.desafiolatam.tddproyectofinal.R
 import cl.desafiolatam.tddproyectofinal.model.db.CharacterEntity
-import cl.desafiolatam.tddproyectofinal.view.BBAdapter
 import cl.desafiolatam.tddproyectofinal.viewmodel.BBViewModel
 import kotlinx.android.synthetic.main.fragment_character_list.*
 
 
 class CharacterListFragment : Fragment() {
     // TODO: Rename and change types of parameters
+
+    private val bbViewModel: BBViewModel by activityViewModels()
     private var param1: String? = null
     private var param2: String? = null
 
@@ -67,14 +69,19 @@ class CharacterListFragment : Fragment() {
         character_list.layoutManager = LinearLayoutManager(context)
         character_list.adapter = bbAdapter
 
-        val bbViewModel: BBViewModel by activityViewModels()
-
         bbViewModel.characterList.observe(viewLifecycleOwner, {
             bbAdapter.updateCharactersItems(it)
         })
 
         bbAdapter.characterSelected.observe(viewLifecycleOwner, Observer {
             Log.d(logtag, "Personaje seleccionado $it")
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(
+                    R.id.mainContainer,
+                    CharacterDetailFragment.newInstance(it.char_id.toString(), ""), "A detalles"
+                )
+                .addToBackStack("A la lista")
+                .commit()
         })
     }
 }
