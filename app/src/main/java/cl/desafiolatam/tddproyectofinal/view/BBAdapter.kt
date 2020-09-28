@@ -18,7 +18,6 @@ class BBAdapter(private var myDataset: MutableList<CharacterEntity>) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BBHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.character_item, parent, false)
-
         return BBHolder(view)
     }
 
@@ -30,10 +29,11 @@ class BBAdapter(private var myDataset: MutableList<CharacterEntity>) :
             .load(character.img)
             .into(holder.character_img)
         holder.character_name.text = character.name
-        holder.itemView.setOnClickListener {
-            //Log.d(tag, "${myDataset.get(position)}")
+        holder.character_nickname.text = character.nickname
+        holder.btn_details.setOnClickListener {
             characterSelected.value = myDataset.get(position)
         }
+        holder.btn_addfav.setOnClickListener { TODO("FUNCIONALIDAD") }
     }
 
     override fun getItemCount(): Int {
@@ -42,7 +42,10 @@ class BBAdapter(private var myDataset: MutableList<CharacterEntity>) :
 
     class BBHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var character_name = itemView.character_name
+        var character_nickname = itemView.character_nickname
         var character_img = itemView.character_img
+        var btn_addfav = itemView.action_btn_addfavorites
+        var btn_details = itemView.action_btn_details
     }
 
     fun updateCharactersItems(it: List<CharacterEntity>) {
