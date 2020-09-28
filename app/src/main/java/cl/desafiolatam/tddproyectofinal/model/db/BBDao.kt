@@ -13,4 +13,7 @@ interface BBDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAllCharacters(characterList: List<CharacterEntity>)
+
+    @Query("SELECT * FROM character_table WHERE char_id = :id")
+    fun getDetailCharacter(id: String): LiveData<CharacterEntity>
 }
