@@ -2,6 +2,7 @@ package cl.desafiolatam.tddproyectofinal.model
 
 import android.content.Context
 import android.util.Log
+import androidx.lifecycle.LiveData
 import cl.desafiolatam.tddproyectofinal.model.db.BBDataBase
 import cl.desafiolatam.tddproyectofinal.model.db.CharacterEntity
 import cl.desafiolatam.tddproyectofinal.model.remote.RetrofitClient
@@ -49,5 +50,10 @@ class BBRepository(context: Context) {
         CoroutineScope(Dispatchers.IO).launch {
             bbDataBase.bbDao().insertAllCharacters(charactersListEntity)
         }
+    }
+
+    fun getDetail(param1: String): LiveData<CharacterEntity> {
+        return bbDataBase.bbDao().getDetailCharacter(param1)
+
     }
 }
