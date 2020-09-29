@@ -2,17 +2,16 @@ package cl.desafiolatam.tddproyectofinal.view
 
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import cl.desafiolatam.tddproyectofinal.R
 import cl.desafiolatam.tddproyectofinal.model.db.CharacterEntity
 import cl.desafiolatam.tddproyectofinal.viewmodel.BBViewModel
 import kotlinx.android.synthetic.main.fragment_character_list.*
+import kotlinx.android.synthetic.main.fragment_character_list.view.*
 
 
 class CharacterListFragment : Fragment() {
@@ -22,16 +21,12 @@ class CharacterListFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
-    val logtag = "CharacterListFragment"
     private var characterList = ArrayList<CharacterEntity>()
     private lateinit var bbAdapter: BBAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        /*arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }*/
+        setHasOptionsMenu(true)
     }
 
     override fun onCreateView(
@@ -39,7 +34,14 @@ class CharacterListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_character_list, container, false)
+        val view = inflater.inflate(R.layout.fragment_character_list, container, false)
+        (activity as AppCompatActivity).setSupportActionBar(view.app_bar)
+        return view
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, menuInflater: MenuInflater) {
+        menuInflater.inflate(R.menu.toolbar_menu, menu)
+        super.onCreateOptionsMenu(menu, menuInflater)
     }
 
     companion object {
@@ -73,8 +75,8 @@ class CharacterListFragment : Fragment() {
             bbAdapter.updateCharactersItems(it)
         })
 
-        bbAdapter.characterSelected.observe(viewLifecycleOwner, Observer {
-            Log.d(logtag, "Personaje seleccionado $it")
+        bbAdapter.characterSelected.observe(viewLifecycleOwner, {
+            Log.d("List Fragment", "Personaje seleccionado $it")
             requireActivity().supportFragmentManager.beginTransaction()
                 .replace(
                     R.id.mainContainer,

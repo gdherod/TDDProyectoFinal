@@ -11,4 +11,6 @@
     <string name="status_text">Status:</string>
     <string name="portrayed_text">Portrayed:</string>
     <string name="appearances_text">Appearances:</string>
+    <string name="filter_title">Filter</string>
+    <string name="search_title">Search</string>
 </resources>
