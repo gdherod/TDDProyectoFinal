@@ -10,7 +10,6 @@ import androidx.fragment.app.activityViewModels
 import cl.desafiolatam.tddproyectofinal.R
 import cl.desafiolatam.tddproyectofinal.viewmodel.BBViewModel
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import kotlinx.android.synthetic.main.fragment_character_detail.*
 
@@ -86,7 +85,6 @@ class CharacterDetailFragment : Fragment() {
                 .override(1080)
                 .fitCenter()
                 .transition(DrawableTransitionOptions.withCrossFade())
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(character_detail_img)
         })
     }
