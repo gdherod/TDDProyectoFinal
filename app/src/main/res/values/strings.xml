@@ -3,8 +3,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="name_text">Name: </string>
     <string name="nickname_text">Nickname: </string>
-    <string name="favorites_text">Add to Favorites</string>
-    <string name="details_text">More Details</string>
+    <string name="favorites_text">Favorite</string>
+    <string name="details_text">Details</string>
     <string name="occupation_text">Occupation:</string>
     <string name="birthday_text">Birthday:</string>
     <string name="status_text">Status:</string>
