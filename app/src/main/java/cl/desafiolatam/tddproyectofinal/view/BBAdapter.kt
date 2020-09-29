@@ -14,8 +14,6 @@ import kotlinx.android.synthetic.main.character_item.view.*
 class BBAdapter(private var myDataset: MutableList<CharacterEntity>) :
     RecyclerView.Adapter<BBAdapter.BBHolder>() {
 
-    val tag = "Adapter"
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BBHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.character_item, parent, false)
@@ -29,13 +27,13 @@ class BBAdapter(private var myDataset: MutableList<CharacterEntity>) :
         Glide.with(holder.itemView.context)
             .load(character.img)
             .transition(DrawableTransitionOptions.withCrossFade())
-            .into(holder.character_img)
-        holder.character_name.text = character.name
-        holder.character_nickname.text = character.nickname
-        holder.btn_details.setOnClickListener {
+            .into(holder.characterImg)
+        holder.characterName.text = character.name
+        holder.characterNickname.text = character.nickname
+        holder.btnDetails.setOnClickListener {
             characterSelected.value = myDataset[position]
         }
-        holder.btn_addfav.setOnClickListener {
+        holder.btnAddFav.setOnClickListener {
         }
     }
 
@@ -44,11 +42,11 @@ class BBAdapter(private var myDataset: MutableList<CharacterEntity>) :
     }
 
     class BBHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var character_name = itemView.character_name
-        var character_nickname = itemView.character_nickname
-        var character_img = itemView.character_img
-        var btn_addfav = itemView.action_btn_addfavorites
-        var btn_details = itemView.action_btn_details
+        var characterName = itemView.character_name!!
+        var characterNickname = itemView.character_nickname!!
+        var characterImg = itemView.character_img!!
+        var btnAddFav = itemView.action_btn_addfavorites!!
+        var btnDetails = itemView.action_btn_details!!
     }
 
     fun updateCharactersItems(it: List<CharacterEntity>) {

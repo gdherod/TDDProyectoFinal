@@ -6,7 +6,6 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 
-// Annotates class to be a Room Database with a table (entity) of the Word class
 @Database(entities = [CharacterEntity::class], version = 1, exportSchema = false)
 @TypeConverters(StringListConverter::class)
 abstract class BBDataBase : RoomDatabase() {
@@ -14,8 +13,6 @@ abstract class BBDataBase : RoomDatabase() {
     abstract fun bbDao(): BBDao
 
     companion object {
-        // Singleton prevents multiple instances of database opening at the
-        // same time.
         @Volatile
         private var INSTANCE: BBDataBase? = null
 

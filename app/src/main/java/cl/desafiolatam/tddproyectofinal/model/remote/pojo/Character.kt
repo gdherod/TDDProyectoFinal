@@ -8,8 +8,6 @@ data class Character(
         val img: String,
         val status: String,
         val nickname: String,
-        //val appearance: List<Int>,
         val portrayed: String,
         val category: String
-        //val betterCallSaulAppearance: List<Int?>
 )

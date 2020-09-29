@@ -8,8 +8,6 @@ import cl.desafiolatam.tddproyectofinal.model.db.CharacterEntity
 
 class BBViewModel(application: Application) : AndroidViewModel(application) {
 
-    val tag = "ViewModel"
-
     private var bbrepository: BBRepository = BBRepository(application)
 
     var characterList = bbrepository.characterList

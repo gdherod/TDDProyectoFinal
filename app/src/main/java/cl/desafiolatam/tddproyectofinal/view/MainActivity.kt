@@ -6,8 +6,6 @@ import cl.desafiolatam.tddproyectofinal.R
 
 class MainActivity : AppCompatActivity() {
 
-    val tag = "MainActivity"
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

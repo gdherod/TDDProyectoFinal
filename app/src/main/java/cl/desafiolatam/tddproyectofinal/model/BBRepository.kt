@@ -13,9 +13,9 @@ import kotlinx.coroutines.launch
 
 class BBRepository(context: Context) {
 
-    val tag = "Repository"
+    private val tag = "Repository"
 
-    var bbDataBase = BBDataBase.getDatabase(context)
+    private var bbDataBase = BBDataBase.getDatabase(context)
     var characterList = bbDataBase.bbDao().getAllCharacter()
 
     fun loadApidata() = CoroutineScope(Dispatchers.IO).launch {
@@ -28,7 +28,7 @@ class BBRepository(context: Context) {
         }
     }
 
-    fun characterApitoEntity(characterList: List<Character>): List<CharacterEntity> {
+    private fun characterApitoEntity(characterList: List<Character>): List<CharacterEntity> {
         return characterList.map { character ->
             CharacterEntity(
                 character.char_id,
@@ -38,15 +38,13 @@ class BBRepository(context: Context) {
                 character.img,
                 character.status,
                 character.nickname,
-                //character.appearance,
                 character.portrayed,
                 character.category
-                //character.betterCallSaulAppearance
             )
         }
     }
 
-    fun insertCharacterDB(charactersListEntity: List<CharacterEntity>) {
+    private fun insertCharacterDB(charactersListEntity: List<CharacterEntity>) {
         CoroutineScope(Dispatchers.IO).launch {
             bbDataBase.bbDao().insertAllCharacters(charactersListEntity)
         }
@@ -54,6 +52,7 @@ class BBRepository(context: Context) {
 
     fun getDetail(param1: String): LiveData<CharacterEntity> {
         return bbDataBase.bbDao().getDetailCharacter(param1)
-
     }
+
+
 }

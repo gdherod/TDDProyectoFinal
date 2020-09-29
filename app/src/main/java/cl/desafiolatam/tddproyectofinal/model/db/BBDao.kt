@@ -16,4 +16,5 @@ interface BBDao {
 
     @Query("SELECT * FROM character_table WHERE char_id = :id")
     fun getDetailCharacter(id: String): LiveData<CharacterEntity>
+
 }
