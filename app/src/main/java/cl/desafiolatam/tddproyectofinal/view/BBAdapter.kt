@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import cl.desafiolatam.tddproyectofinal.R
 import cl.desafiolatam.tddproyectofinal.model.db.CharacterEntity
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import kotlinx.android.synthetic.main.character_item.view.*
 
 class BBAdapter(private var myDataset: MutableList<CharacterEntity>) :
@@ -27,13 +28,15 @@ class BBAdapter(private var myDataset: MutableList<CharacterEntity>) :
         val character = myDataset[position]
         Glide.with(holder.itemView.context)
             .load(character.img)
+            .transition(DrawableTransitionOptions.withCrossFade())
             .into(holder.character_img)
         holder.character_name.text = character.name
         holder.character_nickname.text = character.nickname
         holder.btn_details.setOnClickListener {
-            characterSelected.value = myDataset.get(position)
+            characterSelected.value = myDataset[position]
         }
-        holder.btn_addfav.setOnClickListener { TODO("FUNCIONALIDAD") }
+        holder.btn_addfav.setOnClickListener {
+        }
     }
 
     override fun getItemCount(): Int {
