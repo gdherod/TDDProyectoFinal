@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.CharacterDetailFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFFFF">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp">
+
+            <ImageView
+                android:id="@+id/character_detail_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/avatars"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/character_detail_name_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/name_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/character_detail_img" />
+
+            <TextView
+                android:id="@+id/character_detail_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="TextView"
+                app:layout_constraintBaseline_toBaselineOf="@+id/character_detail_name_text"
+                app:layout_constraintStart_toEndOf="@+id/character_detail_name_text"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/character_detail_nickname_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/nickname_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/character_detail_name_text" />
+
+            <TextView
+                android:id="@+id/character_detail_nickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="TextView"
+                app:layout_constraintBaseline_toBaselineOf="@+id/character_detail_nickname_text"
+                app:layout_constraintStart_toEndOf="@+id/character_detail_nickname_text"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/character_detail_occupation_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/occupation_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/character_detail_nickname_text" />
+
+            <TextView
+                android:id="@+id/character_detail_occupation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="TextView"
+                app:layout_constraintBaseline_toBaselineOf="@+id/character_detail_occupation_text"
+                app:layout_constraintStart_toEndOf="@+id/character_detail_occupation_text"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/character_detail_birthday_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/birthday_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/character_detail_occupation_text" />
+
+            <TextView
+                android:id="@+id/character_detail_birthday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="TextView"
+                app:layout_constraintBaseline_toBaselineOf="@+id/character_detail_birthday_text"
+                app:layout_constraintStart_toEndOf="@+id/character_detail_birthday_text"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/character_detail_appearances_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/appearances_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/character_detail_birthday_text" />
+
+            <TextView
+                android:id="@+id/character_detail_appearances"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="TextView"
+                app:layout_constraintBaseline_toBaselineOf="@+id/character_detail_appearances_text"
+                app:layout_constraintStart_toEndOf="@+id/character_detail_appearances_text"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/character_detail_status_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/status_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/character_detail_appearances_text" />
+
+            <TextView
+                android:id="@+id/character_detail_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="TextView"
+                app:layout_constraintBaseline_toBaselineOf="@+id/character_detail_status_text"
+                app:layout_constraintStart_toEndOf="@+id/character_detail_status_text"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/character_detail_portrayed_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/portrayed_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/character_detail_status_text" />
+
+            <TextView
+                android:id="@+id/character_detail_portrayed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="TextView"
+                app:layout_constraintBaseline_toBaselineOf="@+id/character_detail_portrayed_text"
+                app:layout_constraintStart_toEndOf="@+id/character_detail_portrayed_text"
+                tools:ignore="HardcodedText" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</FrameLayout>
